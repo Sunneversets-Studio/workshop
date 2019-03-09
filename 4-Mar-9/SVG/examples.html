@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/blog.css">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <script src="js/bootstrap.min.js"></script>
+</head>
+<style>
+    .serif{
+        font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+    }
+    .table-class{
+        font-size: 17px;
+        margin: 2em auto;
+        display: table;
+        border-collapse: collapse;
+        border-spacing: 2px;
+        border-color: grey;
+    }
+    .table-class th{
+        font-weight: 700;
+        color: #565656;
+        text-align: left;
+    }
+
+    .table-class td, .table-class th {
+        border: 1px solid silver;
+        padding: 10px 15px;
+        text-align: center;
+        line-height: 1.5em;
+    }
+
+    .table-class code {
+        font-family: Consolas,monospace;
+        color: #e91e63;
+        padding: 2px 5px;
+        -webkit-border-radius: 3px 3px 3px 3px;
+        -moz-border-radius: 3px 3px 3px 3px;
+        border-radius: 3px 3px 3px 3px;
+    }
+
+    @keyframes mouth {
+        0% {
+            transform: rotate(-80deg);
+            stroke-dasharray: 60, 95;
+            stroke-dashoffset: 0;
+        }
+        40% {
+            transform: rotate(280deg);
+            stroke-dasharray: 60, 95;
+            stroke-dashoffset: 0;
+        }
+        70%, 100% {
+            transform: rotate(280deg);
+            stroke-dashoffset: -23;
+            stroke-dasharray: 42, 95;
+        }
+    }
+
+    #mymouth{
+        animation-name: mouth;
+        animation-duration: 0.8s;
+        animation-iteration-count: infinite;
+    }
+</style>
+<body>
+    <main role="main" class="container">
+        <div class="row">
+            <div class="col-12 blog-main">
+                <div class="mb-4 border-bottom">
+                    <h1 class="serif">
+                        What can SVG do?
+                    </h1>
+                    <p>@Li Zhuoxuan, Sunneverset</p>
+                </div>
+                <h3 class="blog-post-title">Directly create with a vector graphic tool (Adobe AI etc.)</h3>
+                <div class="blog-post">
+                    <div class="row">
+                        <div class="col-4">
+                            <object  type="image/svg+xml" data="svg/sunneverset.svg">
+                                <img src="svg/sunneverset.svg" />
+                            </object>
+                        </div>
+                        <div class="col-8">
+                            <code style="width: 100%; height:200px">
+                                ...
+                            </code>
+                        </div>
+                    </div>
+                </div><!-- /embed svg -->
+
+                <h3 class="blog-post-title">Chart</h3>
+                <div class="blog-post">
+                    <div class="row">
+                        <div class="col-4">
+                            <svg width="350" height="160">
+                                <g class="layer" transform="translate(60,10)">
+                                    <circle r="5" cx="0"   cy="105"></circle>
+                                    <circle r="5" cx="90"  cy="90"></circle>
+                                    <circle r="5" cx="180" cy="60"></circle>
+                                    <circle r="5" cx="270" cy="0"></circle>
+
+                                    <g class="y axis">
+                                        <line x1="0" y1="0" x2="0" y2="120" style="stroke: black; stroke-width: 2;"></line>
+                                        <text x="-40" y="105" dy="5">$10</text>
+                                        <text x="-40" y="0"   dy="5">$80</text>
+                                    </g>
+                                    <g class="x axis" transform="translate(0, 120)">
+                                        <line x1="0" y1="0" x2="270" y2="0" style="stroke: black; stroke-width: 2;"></line>
+                                        <text x="-30"   y="20">January 2014</text>
+                                        <text x="240" y="20">April</text>
+                                    </g>
+                                </g>
+                            </svg>
+                            <table class="table-class mt-3">
+                                <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Amount</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>2014-01-01</td>
+                                    <td>$10</td>
+                                </tr>
+                                <tr>
+                                    <td>2014-02-01</td>
+                                    <td>$20</td>
+                                </tr>
+                                <tr>
+                                    <td>2014-03-01</td>
+                                    <td>$40</td>
+                                </tr>
+                                <tr>
+                                    <td>2014-04-01</td>
+                                    <td>$80</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-8">
+                            <code>
+                                &lt;g class=&quot;layer&quot; transform=&quot;translate(60,10)&quot;&gt;<br>
+                                &lt;circle r=&quot;5&quot; cx=&quot;0&quot;   cy=&quot;105&quot;&gt;&lt;/circle&gt;<br>
+                                &lt;circle r=&quot;5&quot; cx=&quot;90&quot;  cy=&quot;90&quot;&gt;&lt;/circle&gt;<br>
+                                &lt;circle r=&quot;5&quot; cx=&quot;180&quot; cy=&quot;60&quot;&gt;&lt;/circle&gt;<br>
+                                &lt;circle r=&quot;5&quot; cx=&quot;270&quot; cy=&quot;0&quot;&gt;&lt;/circle&gt;<br>
+
+                                &lt;g class=&quot;y axis&quot;&gt;<br>
+                                &lt;line x1=&quot;0&quot; y1=&quot;0&quot; x2=&quot;0&quot; y2=&quot;120&quot; style=&quot;stroke: black; stroke-width: 2;&quot;&gt;&lt;/line&gt;<br>
+                                &lt;text x=&quot;-40&quot; y=&quot;105&quot; dy=&quot;5&quot;&gt;$10&lt;/text&gt;<br>
+                                &lt;text x=&quot;-40&quot; y=&quot;0&quot;   dy=&quot;5&quot;&gt;$80&lt;/text&gt;<br>
+                                &lt;/g&gt;<br>
+                                &lt;g class=&quot;x axis&quot; transform=&quot;translate(0, 120)&quot;&gt;<br>
+                                &lt;line x1=&quot;0&quot; y1=&quot;0&quot; x2=&quot;270&quot; y2=&quot;0&quot; style=&quot;stroke: black; stroke-width: 2;&quot;&gt;&lt;/line&gt;<br>
+                                &lt;text x=&quot;-30&quot;   y=&quot;20&quot;&gt;January 2014&lt;/text&gt;<br>
+                                &lt;text x=&quot;240&quot; y=&quot;20&quot;&gt;April&lt;/text&gt;<br>
+                                &lt;/g&gt;<br>
+                                &lt;/g&gt;<br>
+                            </code>
+                            <p class="mt-1">Credit to: http://www.ruanyifeng.com/blog/2018/08/svg.html</p>
+                        </div>
+                    </div>
+                </div><!-- /chart -->
+
+                <h3 class="blog-post-title">Path Graph</h3>
+                <div class="blog-post">
+                    <div class="row">
+                        <div class="col-4">
+                            <svg height="400" width="450">
+                                <path id="lineAB" d="M 100 350 l 150 -300" stroke="red"
+                                      stroke-width="3" fill="none"></path>
+                                <path id="lineBC" d="M 250 50 l 150 300" stroke="red"
+                                      stroke-width="3" fill="none"></path>
+                                <path d="M 175 200 l 150 0" stroke="green" stroke-width="3"
+                                      fill="none"></path>
+                                <path d="M 100 350 q 150 -300 300 0" stroke="blue"
+                                      stroke-width="5" fill="none"></path>
+                                <!-- Mark relevant points -->
+                                <g stroke="black" stroke-width="3" fill="black">
+                                    <circle id="pointA" cx="100" cy="350" r="3"></circle>
+                                    <circle id="pointB" cx="250" cy="50" r="3"></circle>
+                                    <circle id="pointC" cx="400" cy="350" r="3"></circle>
+                                </g>
+                                <!-- Label the points -->
+                                <g font-size="30" font-family="sans-serif" fill="black" stroke="none"
+                                   text-anchor="middle">
+                                    <text x="100" y="350" dx="-30">A</text>
+                                    <text x="250" y="50" dy="-10">B</text>
+                                    <text x="400" y="350" dx="30">C</text>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="col-8">
+                            <code>
+                                &lt;svg height=&quot;400&quot; width=&quot;450&quot;&gt;<br>
+                                &lt;path id=&quot;lineAB&quot; d=&quot;M 100 350 l 150 -300&quot; stroke=&quot;red&quot;<br>
+                                stroke-width=&quot;3&quot; fill=&quot;none&quot;&gt;&lt;/path&gt;<br>
+                                &lt;path id=&quot;lineBC&quot; d=&quot;M 250 50 l 150 300&quot; stroke=&quot;red&quot;<br>
+                                stroke-width=&quot;3&quot; fill=&quot;none&quot;&gt;&lt;/path&gt;<br>
+                                &lt;path d=&quot;M 175 200 l 150 0&quot; stroke=&quot;green&quot; stroke-width=&quot;3&quot;<br>
+                                fill=&quot;none&quot;&gt;&lt;/path&gt;<br>
+                                &lt;path d=&quot;M 100 350 q 150 -300 300 0&quot; stroke=&quot;blue&quot;<br>
+                                stroke-width=&quot;5&quot; fill=&quot;none&quot;&gt;&lt;/path&gt;<br>
+                                &lt;!-- Mark relevant points --&gt;<br>
+                                &lt;g stroke=&quot;black&quot; stroke-width=&quot;3&quot; fill=&quot;black&quot;&gt;<br>
+                                &lt;circle id=&quot;pointA&quot; cx=&quot;100&quot; cy=&quot;350&quot; r=&quot;3&quot;&gt;&lt;/circle&gt;<br>
+                                &lt;circle id=&quot;pointB&quot; cx=&quot;250&quot; cy=&quot;50&quot; r=&quot;3&quot;&gt;&lt;/circle&gt;<br>
+                                &lt;circle id=&quot;pointC&quot; cx=&quot;400&quot; cy=&quot;350&quot; r=&quot;3&quot;&gt;&lt;/circle&gt;<br>
+                                &lt;/g&gt;<br>
+                                &lt;!-- Label the points --&gt;<br>
+                                &lt;g font-size=&quot;30&quot; font-family=&quot;sans-serif&quot; fill=&quot;black&quot; stroke=&quot;none&quot;<br>
+                                text-anchor=&quot;middle&quot;&gt;<br>
+                                &lt;text x=&quot;100&quot; y=&quot;350&quot; dx=&quot;-30&quot;&gt;A&lt;/text&gt;<br>
+                                &lt;text x=&quot;250&quot; y=&quot;50&quot; dy=&quot;-10&quot;&gt;B&lt;/text&gt;<br>
+                                &lt;text x=&quot;400&quot; y=&quot;350&quot; dx=&quot;30&quot;&gt;C&lt;/text&gt;<br>
+                                &lt;/g&gt;<br>
+                                &lt;/svg&gt;<br>
+                            </code>
+                            <p class="mt-1">Credit to: https://www.w3schools.com/graphics/svg_path.asp</p>
+                        </div>
+                    </div>
+                </div><!-- /graph -->
+
+                <div class="blog-post">
+                    <h3 class="blog-post-title">Animation</h3>
+                    <div class="row">
+                        <div class="col-4">
+                            <svg width="400" height="200">
+                                <circle cx="50" cy="50" r="15" style="fill:#d8210d">
+                                    <animate id="a1" attributeName="r" attributeType="XML" from="0" to="20" begin="0s; a7.end" dur=".5s"></animate>
+                                </circle>
+                                <circle cx="75" cy="50" r="15" style="fill:#e61b64">
+                                    <animate id="a2" attributeName="r" attributeType="XML" from="0" to="20" begin="a1.end" dur=".5s"></animate>
+                                </circle>
+                                <circle cx="100" cy="50" r="15" style="fill:#d7006f">
+                                    <animate id="a3" attributeName="r" attributeType="XML" from="0" to="20" begin="a2.end" dur=".5s" ></animate>
+                                </circle>
+                                <circle cx="125" cy="50" r="15" style="fill:#ee869a">
+                                    <animate id="a4" attributeName="r" attributeType="XML" from="0" to="20" begin="a3.end" dur=".5s"></animate>
+                                </circle>
+                                <circle cx="150" cy="50" r="15" style="fill:#e5004f">
+                                    <animate id="a5" attributeName="r" attributeType="XML" from="0" to="20" begin="a4.end" dur=".5s"></animate>
+                                </circle>
+                                <circle cx="175" cy="50" r="15" style="fill:#ea5520">
+                                    <animate id="a6" attributeName="r" attributeType="XML" from="0" to="20" begin="a5.end" dur=".5s"></animate>
+                                </circle>
+                                <circle cx="200" cy="50" r="15" style="fill:#e61b64">
+                                    <animate id="a7" attributeName="r" attributeType="XML" from="0" to="20" begin="a6.end" dur=".5s"></animate>
+                                </circle>
+                            </svg>
+                        </div>
+                        <div class="col-8">
+                            <code>&lt;svg width=&quot;400&quot; height=&quot;200&quot;&gt;<br>
+                                &lt;circle cx=&quot;50&quot; cy=&quot;50&quot; r=&quot;15&quot; style=&quot;fill:#d8210d&quot;&gt;<br>
+                                &lt;animate id=&quot;a1&quot; attributeName=&quot;r&quot; attributeType=&quot;XML&quot; from=&quot;0&quot; to=&quot;20&quot; begin=&quot;0s; a7.end&quot; dur=&quot;.5s&quot;&gt;&lt;/animate&gt;<br>
+                                &lt;/circle&gt;<br>
+                                &lt;circle cx=&quot;75&quot; cy=&quot;50&quot; r=&quot;15&quot; style=&quot;fill:#e61b64&quot;&gt;<br>
+                                &lt;animate id=&quot;a2&quot; attributeName=&quot;r&quot; attributeType=&quot;XML&quot; from=&quot;0&quot; to=&quot;20&quot; begin=&quot;a1.end&quot; dur=&quot;.5s&quot;&gt;&lt;/animate&gt;<br>
+                                &lt;/circle&gt;<br>
+                                &lt;circle cx=&quot;100&quot; cy=&quot;50&quot; r=&quot;15&quot; style=&quot;fill:#d7006f&quot;&gt;<br>
+                                &lt;animate id=&quot;a3&quot; attributeName=&quot;r&quot; attributeType=&quot;XML&quot; from=&quot;0&quot; to=&quot;20&quot; begin=&quot;a2.end&quot; dur=&quot;.5s&quot; &gt;&lt;/animate&gt;<br>
+                                &lt;/circle&gt;<br>
+                                &lt;circle cx=&quot;125&quot; cy=&quot;50&quot; r=&quot;15&quot; style=&quot;fill:#ee869a&quot;&gt;<br>
+                                &lt;animate id=&quot;a4&quot; attributeName=&quot;r&quot; attributeType=&quot;XML&quot; from=&quot;0&quot; to=&quot;20&quot; begin=&quot;a3.end&quot; dur=&quot;.5s&quot;&gt;&lt;/animate&gt;<br>
+                                &lt;/circle&gt;<br>
+                                &lt;circle cx=&quot;150&quot; cy=&quot;50&quot; r=&quot;15&quot; style=&quot;fill:#e5004f&quot;&gt;<br>
+                                &lt;animate id=&quot;a5&quot; attributeName=&quot;r&quot; attributeType=&quot;XML&quot; from=&quot;0&quot; to=&quot;20&quot; begin=&quot;a4.end&quot; dur=&quot;.5s&quot;&gt;&lt;/animate&gt;<br>
+                                &lt;/circle&gt;<br>
+                                &lt;circle cx=&quot;175&quot; cy=&quot;50&quot; r=&quot;15&quot; style=&quot;fill:#ea5520&quot;&gt;<br>
+                                &lt;animate id=&quot;a6&quot; attributeName=&quot;r&quot; attributeType=&quot;XML&quot; from=&quot;0&quot; to=&quot;20&quot; begin=&quot;a5.end&quot; dur=&quot;.5s&quot;&gt;&lt;/animate&gt;<br>
+                                &lt;/circle&gt;<br>
+                                &lt;circle cx=&quot;200&quot; cy=&quot;50&quot; r=&quot;15&quot; style=&quot;fill:#e61b64&quot;&gt;<br>
+                                &lt;animate id=&quot;a7&quot; attributeName=&quot;r&quot; attributeType=&quot;XML&quot; from=&quot;0&quot; to=&quot;20&quot; begin=&quot;a6.end&quot; dur=&quot;.5s&quot;&gt;&lt;/animate&gt;<br>
+                                &lt;/circle&gt;<br>
+                                &lt;/svg&gt;</code>
+                            <p class="mt-1">Credit to: https://www.uisdc.com/tencent-svg-animation-design</p>
+                        </div>
+                    </div>
+                    <!--<div class="row" >
+                        <div class="col-4 text-center">
+                            <svg width="100" height="100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+                                <defs>
+                                    <path id="eyeleft"  d="M 40 60 A 15 15 180 0 1 60 60" style="fill: none; stroke-width: 0;"></path>
+                                    <path id="eyeright"  d="M 60 60 A 15 15 180 0 1 60 60" style="fill: none; stroke-width: 0;"></path>
+                                </defs>
+                                <path d="M 35 40 A 15 15 180 1 1 65 40" style="fill: none; stroke: #e9e8ee; stroke-width: 5;"></path>
+                                <path d="M 20 40 L 80 40 L 80 90 A 10 10 90 0 1 70 100 L 30 100 A 10 10 90 0 1 20 90" style="fill: #e9e8ee;"></path>
+                                <circle id="mymouth" cx="50" cy="70" r="15" style="fill: none; stroke: #fff; stroke-width: 5; stroke-linecap: round;transform: rotate(280deg); transform-origin: 50% 50%; stroke-dashoffset: -23; stroke-dasharray: 42, 95;"></circle>
+                                <circle class="eye" cx="40" cy="60" r="2.5" style="fill: #fff;">
+                                    <animateMotion
+                                            dur="0.8s"
+                                            repeatCount="indefinite"
+                                            keyPoints="0;0;1;1"
+                                            keyTimes="0;0.3;0.9;1"
+                                            calcMode="linear">
+                                        <mpath xlink:href="#eyeleft"></mpath>
+                                    </animateMotion>
+                                </circle>
+                                <circle class="eye" cx="60" cy="60" r="2.5" style="fill: #fff;">
+                                    <animateMotion
+                                            dur="0.8s"
+                                            repeatCount="indefinite"
+                                            keyPoints="0;0;1;1"
+                                            keyTimes="0;0.3;0.9;1"
+                                            calcMode="linear">
+                                        <mpath xlink:href="#eyeright"/>
+                                    </animateMotion>
+                                </circle>
+                            </svg>
+
+                        </div>
+                        <div class="col-8">
+                            <code></code>
+                            <p>Credit to: https://aotu.io/notes/2017/05/04/example-for-svg-animation/index.html</p>
+                        </div>
+                    </div>-->
+
+                </div><!-- /animation -->
+
+                <p>For more details, please click <a href="https://vecta.io/blog/best-way-to-embed-svg/">here</a></p>
+                <p>Adapt from <a href="https://vecta.io/blog/best-way-to-embed-svg/">Link</a></p>
+
+            </div><!-- /.blog-main -->
+
+
+        </div><!-- /.row -->
+
+    </main>
+
+
+
+</body>
+</html>

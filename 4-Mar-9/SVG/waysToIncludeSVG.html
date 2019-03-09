@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/blog.css">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <script src="js/bootstrap.min.js"></script>
+</head>
+<style>
+    .serif{
+        font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+    }
+    .table-class{
+        font-size: 17px;
+        margin: 2em auto;
+        display: table;
+        border-collapse: collapse;
+        border-spacing: 2px;
+        border-color: grey;
+    }
+    .table-class th{
+        font-weight: 700;
+        color: #565656;
+        text-align: left;
+    }
+
+    .table-class td, .table-class th {
+        border: 1px solid silver;
+        padding: 10px 15px;
+        text-align: center;
+        line-height: 1.5em;
+    }
+
+    .table-class code{
+        font-family: Consolas,monospace;
+        color: #e91e63;
+        padding: 2px 5px;
+        -webkit-border-radius: 3px 3px 3px 3px;
+        -moz-border-radius: 3px 3px 3px 3px;
+        border-radius: 3px 3px 3px 3px;
+    }
+</style>
+<body>
+    <main role="main" class="container">
+        <div class="row">
+            <div class="col-12 blog-main">
+                <div class="mb-4 border-bottom">
+                    <h1 class="serif">
+                        Ways to include SVG
+                    </h1>
+                    <p>@Li Zhuoxuan, Sunneverset</p>
+                </div>
+                <h3 class="blog-post-title">Draw a circle with text</h3>
+                <div class="blog-post">
+                    <p class="blog-post-meta"><a href="#">Using embed svg tag</a></p>
+                    <div class="row">
+                        <div class="col-4">
+                            <svg id="embed-svg-tag"
+                                 xmlns="http://www.w3.org/2000/svg"
+                                 viewBox="0 0 400 300"
+                                 preserveAspectRatio="xMidYMid meet"
+                            >
+                                <defs>
+                                    <path id="curve" d="M18,60 C100,10 180,110 264,60" fill="none"></path>
+                                </defs>
+                                <circle cx="150" cy="100" r="80" />
+                                <text font-family="Lobster" font-size="20" fill="#ff9900">
+                                    <textPath xlink:href="#curve" method="stretch" style="visibility: visible;">
+                                        Scalable <tspan fill="white">Vector</tspan> Graphics
+                                    </textPath>
+                                </text>
+                            </svg>
+                        </div>
+                        <div class="col-8">
+                            <code style="width: 100%; height:200px">
+                                &lt;defs&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;path id=&quot;curve&quot; d=&quot;M18,60 C100,10 180,110 264,60&quot; fill=&quot;none&quot;&gt;&lt;/path&gt;<br>
+                                &lt;/defs&gt;<br>
+                                &lt;circle cx=&quot;100&quot; cy=&quot;75&quot; r=&quot;50&quot; /&gt;<br>
+                                &lt;text font-family=&quot;Lobster&quot; font-size=&quot;20&quot; fill=&quot;#ff9900&quot;&gt;<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&lt;textPath xlink:href=&quot;#curve&quot; method=&quot;stretch&quot; style=&quot;visibility: visible;&quot;&gt;<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Scalable &lt;tspan fill=&quot;white&quot;&gt;Vector&lt;/tspan&gt; Graphics<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&lt;/textPath&gt;<br>
+                                &lt;/text&gt;
+                            </code>
+                        </div>
+                    </div>
+                </div><!-- /embed svg -->
+
+                <div class="blog-post">
+                    <p class="blog-post-meta"><a href="#">Using &lt;img&gt; / CSS background image</a></p>
+                    <div class="row">
+                        <div class="col-4">
+                            <img id="img-tag" src="svg/include-using-img-tag.svg" title="not-embed-webfont"/>
+                        </div>
+                        <div class="col-8">
+                            <code style="width: 100%; height:200px">
+                                &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; viewBox=&quot;0 0 400 300&quot;&gt;
+                                &lt;defs&gt;
+                                &lt;path id=&quot;curve&quot; d=&quot;M18,60 C100,10 180,110 264,60&quot; fill=&quot;none&quot;&gt;&lt;/path&gt;
+                                &lt;/defs&gt;
+                                &lt;circle cx=&quot;100&quot; cy=&quot;75&quot; r=&quot;50&quot; /&gt;
+                                &lt;text font-size=&quot;20&quot; fill=&quot;#ff9900&quot;&gt;
+                                &lt;textPath font-family=&quot;Lobster&quot; xlink:href=&quot;#curve&quot; method=&quot;stretch&quot; style=&quot;visibility: visible;&quot;&gt;
+                                Scalable &lt;tspan fill=&quot;white&quot;&gt;Vector&lt;/tspan&gt;Graphics
+                                &lt;/textPath&gt;
+                                &lt;/text&gt;
+                                &lt;/svg&gt;
+                            </code>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <img id="img-tag2" src="svg/embed-webfont.svg" title="embed-webfont"/>
+                        </div>
+                        <div class="col-8">
+                            <p>* Web fonts will fail to render and resort to using only system fonts.Images with &lt;img&gt; tags are not allowed to refer to external resources including CSS, fonts and scripts, for security reasons.</p>
+                        </div>
+                    </div>
+                </div><!-- /img -->
+
+                <div class="blog-post">
+                    <p class="blog-post-meta"><a href="#">Using &lt;object&gt;</a></p>
+                    <div class="row">
+                        <div class="col-4">
+                            <object id="object-tag" type="image/svg+xml" data="svg/embed-webfont.svg">
+                                <img src="svg/embed-webfont.svg" />
+                            </object>
+                        </div>
+                        <div class="col-8">
+                            <code style="width: 100%; height:200px">
+                                &lt;object id=&quot;object-tag&quot; type=&quot;image/svg+xml&quot; data=&quot;svg/embed-webfont.svg&quot;&gt;
+                                &lt;img src=&quot;svg/embed-webfont.svg&quot; /&gt;
+                                &lt;/object&gt;
+                            </code>
+                            <p><b>* Double loading</b>: the browser will load the image on the &lt;object&gt; tag, and another image on the &lt;img&gt; tag, even though only one of them is required, while the other is hidden.</p>
+                        </div>
+                    </div>
+                </div><!-- /object -->
+
+                <div class="blog-post">
+                    <p class="blog-post-meta"><a href="#">Using &lt;iframe&gt;</a></p>
+                    <div class="row">
+                        <div class="col-4">
+                            <iframe id="iframe-tag" src="svg/embed-webfont.svg"></iframe>
+                        </div>
+                        <div class="col-8">
+                            <code style="width: 100%; height:200px">
+                                &lt;iframe id=&quot;iframe-tag&quot; src=&quot;svg/embed-webfont.svg&quot;&gt;&lt;/iframe&gt;
+                            </code>
+                            <p><b>* Not recommend</b></p>
+                        </div>
+                    </div>
+                </div><!-- /object -->
+
+                <div class="blog-post">
+                    <h2 class="blog-post-title">Comparison</h2>
+                    <table class="table-class">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>
+                                    <code>&lt;img&gt;</code>
+                                </th>
+                                <th>
+                                    <code>&lt;object&gt;</code>
+                                </th>
+                                <th>Inline SVG</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Browser support</td>
+                                <td>Good</td>
+                                <td>Good</td>
+                                <td>Good</td>
+                            </tr>
+                            <tr>
+                                <td>Alt and title attribute</td>
+                                <td>Yes</td>
+                                <td>None</td>
+                                <td>Title only</td>
+                            </tr>
+                            <tr>
+                                <td>Browser caching</td>
+                                <td>Yes</td>
+                                <td>Yes</td>
+                                <td>None</td>
+                            </tr>
+                            <tr>
+                                <td>GZip compression</td>
+                                <td>Yes</td>
+                                <td>Yes</td>
+                                <td>None</td>
+                            </tr>
+                            <tr>
+                                <td>Interactivity</td>
+                                <td>None</td>
+                                <td>Yes</td>
+                                <td>Very good</td>
+                            </tr>
+                            <tr>
+                                <td>Search engine indexing</td>
+                                <td>Yes</td>
+                                <td>Through fallback</td>
+                                <td>None</td>
+                            </tr>
+                            <tr>
+                                <td>Workflow</td>
+                                <td>Streamlined</td>
+                                <td>Medium</td>
+                                <td>Convoluted</td>
+                            </tr>
+                            <tr>
+                                <td>Loading speed</td>
+                                <td>Fast</td>
+                                <td>Slower</td>
+                                <td>Very fast</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div><!-- /.blog-post -->
+
+
+                <p>For more details, please click <a href="https://vecta.io/blog/best-way-to-embed-svg/">here</a></p>
+                <p>Adapt from <a href="https://vecta.io/blog/best-way-to-embed-svg/">Link</a></p>
+
+            </div><!-- /.blog-main -->
+
+
+        </div><!-- /.row -->
+
+    </main>
+
+
+
+</body>
+</html>

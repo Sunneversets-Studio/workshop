@@ -1,0 +1,14 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 400 300">
+<defs>
+  <style type="text/css">
+    @import url('https://fonts.googleapis.com/css?family=Lobster');
+ </style>
+    <path id="curve" d="M18,60 C100,10 180,110 264,60" fill="none"></path>
+</defs>
+<circle cx="100" cy="75" r="50" />
+<text font-size="20" fill="#ff9900" style="font-family: 'Lobster';">
+    <textPath xlink:href="#curve" method="stretch" style="visibility: visible;">
+        Scalable <tspan fill="white">Vector</tspan> Graphics
+    </textPath>
+</text>
+</svg>
