@@ -13,4 +13,10 @@
 
 ### Mar 2
 
-- [Functional Programming with JavaScript by Pengfei Yu]()
+- [Functional Programming with JavaScript by Pengfei Yu](https://github.com/Sunneversets-Studio/workshop/tree/master/3-Mar-2/Functional%20Programming%20with%20JavaScript)
+- [Introduction to Python Web Crawler by Zhou Xiao](https://github.com/Sunneversets-Studio/workshop/tree/master/3-Mar-2/Introduction%20to%20Python%20Web%20Crawler)
+
+### Mar 9
+
+* [Introduction to PyQt5 by Kehang Wei](https://github.com/Sunneversets-Studio/workshop/tree/master/4-Mar-9/PyQt5)
+* [Introduction to SVG by Zhuoxuan Li](https://github.com/Sunneversets-Studio/workshop/tree/master/4-Mar-9/SVG)
