@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>It's all about DNS.</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@3.8.0/css/reveal.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@3.8.0/css/theme/black.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.loli.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <style>
+      input {
+        background: #222;
+        color: #fff;
+        border: none;
+        border-bottom: #fff solid;
+        font-size: 35px;
+        width: 120px;
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section id="title">
+          <h2>It's All About DNS.</h2>
+          <hr />
+          <p>SNS Studio, Apr 2019</p>
+        </section>
+        <section id="title">
+          <h3>Disclaimer</h3>
+        </section>
+        <section>
+          <section data-markdown>
+            <textarea data-template>
+		## DNS 是什么？
+
+		DNS - Domain Name System
+
+		<p class="fragment fade-in">互联网的「电话簿」</p>
+				</textarea
+            >
+          </section>
+          <section>
+            <img src="assets/miku-sega-jp-pkg.png" alt="" />
+          </section>
+          <section>
+            <p class="fragment fade-out" data-fragment-index="1">
+              girigiri.love
+            </p>
+            <p class="fragment fade-in" data-fragment-index="1">
+              173.254.200.70
+            </p>
+          </section>
+          <section>
+            <img src="assets/cloudflare-dns-lookup-diagram.png" alt="" />
+          </section>
+          <section>
+            <p>递归查询</p>
+
+            <img src="assets/dns-root-server.png" alt="" />
+          </section>
+          <section>
+            <img src="assets/dns-zone.png" alt="" />
+          </section>
+          <section>
+            <img src="assets/opendns-recursive.png" alt="" />
+          </section>
+        </section>
+        <section>
+          <p>DNS 也可以储存别的东西...</p>
+          <img src="assets/ustc-qq-group.png" alt="" />
+        </section>
+        <section>
+          <section>
+            <h2>DNS 的中心化？</h2>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h3>OpenNIC</h3>
+            <img src="assets/opennic-servers.png" alt="" />
+          </section>
+          <section>
+            <img src="assets/opennic-tld.png" alt="" />
+          </section>
+        </section>
+        <section>
+          <section>
+            <h3>Namecoin</h3>
+            <img src="assets/459px-Namecoin_logo.svg.png" alt="" />
+          </section>
+          <section>
+            <img src="assets/zeroname.png" alt="" />
+          </section>
+          <section>
+            <img src="assets/huoju.bit.png" alt="" />
+          </section>
+          <section>
+            <img style="margin: -2px" src="assets/register-fee.png" alt="" />
+            <img style="margin: -2px" src="assets/nmc.price.png" alt="" />
+            <img style="margin: -2px" src="assets/namecoin.register.png" alt="" />
+          </section>
+        </section>
+        <section>
+          <h1 style="text-transform: none">/go/however</h1>
+          <p>It's not reliable.</p>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+		## 举个例子
+
+		Pixiv
+
+		<img src="assets/pixiv.png" alt="Pixiv logo" height=300px>
+		</textarea
+          >
+        </section>
+        <section>
+          <section data-markdown>
+            <textarea data-template>
+			```
+	Checking domain pixiv.net...
+	
+	114DNS         : 31.13.85.1 
+	CNNIC SDNS     : 69.171.248.112 
+	BaiduDNS       : 31.13.75.18 
+	OpenDNS        : 31.13.85.16 
+	CloudFlareDNS  : 31.13.69.160 
+	IBM Quad9      : 174.37.154.236 
+	Google PubDNS  : 64.13.232.149
+	CT Guangdong   : 31.13.68.1 
+			```
+			</textarea
+            >
+          </section>
+          <section>
+            <img src="assets/pixiv-good.png" alt="" />
+          </section>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+		「DNS 污染」
+		
+		"DNS Spoofing" / "DNS Cache Poisoning"
+		</textarea
+          >
+        </section>
+        <section>
+          <section>
+            <img src="assets/dns-spoofing-ip.png" alt="" />
+          </section>
+          <section>
+            <img src="assets/wo.png" alt="" />
+          </section>
+        </section>
+        <section>
+          <section data-markdown>
+            <textarea data-template>
+								[癸巳年除夕AB站重定向事件](https://zh.moegirl.org/zh-hans/癸巳年除夕AB站重定向事件)
+					</textarea
+            >
+          </section>
+          <section>
+            <img src="assets/Bili_telnet_20130210.png" alt="" />
+          </section>
+          <section>
+            <img src="assets/AC_CNTV_20130209.jpg" alt="" />
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+					``` plain
+					19:00 左右，监测到第一次攻击，流量不大被系统忽略。 
+					19:30 攻击流量开始增加 
+					19:50 给ac技术打电话，关机 
+					20:05 第一台服务器超载 
+					20:30 第一台服务器失去响应，负载均衡系统和DNS是联动的，负载均衡启用了
+					第二台服务器 
+					21:25 第二台服务器失去响应 ，切换到第三台 
+					21:45 第三台失去响应 
+					22:20 第四台失去响应 
+					22:30 有意思的事情来了，第五台服务器在负载均衡系统里面的ip地址是错的
+					，是同一网段内的一台服务器，那台服务器属于央视 于是大家看到了cctv的页面
+					，但是这不是跳转，你可以看到地址栏地址并没有变。 很快，央视服务器也坏掉
+					了。负载均衡器重复起刚刚的事情。 约23点， AC技术电话能接通了、表示飞机
+					晚点了，马上进行处理。 
+					23:30左右逐步恢复正常 0点左右，接到大量报警，来自bilibili.com的大量请
+					求 联系bilibili管理员，未果 经过研究，对方被DNS投毒 
+					0:30左右，bilibili管理上线，经过分析，一致认为这是一起恶性中伤事件。 
+					经过讨论，给出解决方案，由于域名过期时间很长，由ac向被污染的域名提供反向
+					代理以维持正常访问。 
+					1:00 事件基本结束。 
+					
+					ACFUN表示 不论出于何种目的，任何攻击行为都是不道德的，对这种行为表示谴责。
+					```
+					</textarea
+            >
+          </section>
+        </section>
+        <section>
+          <section data-markdown>
+            <textarea data-template>
+						## 如何防止 DNS 污染
+	
+						* UDP -> **TCP**
+						* :53 -> **:5353**
+						* DNS over TLS / DNS over HTTPS
+						* DNSSEC
+					</textarea
+            >
+          </section>
+          <section>
+            <h3>UDP -> TCP</h3>
+            <img
+              style="width: 45%; float: left"
+              src="assets/tcp-udp-diff-skullbox.jpg"
+            />
+            <img
+              style="width: 45%; float: right"
+              src="assets/tcp-udp-diff-skullbox-2.jpg"
+            />
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+						### :53 -> :853/:5353
+						（`853` 实际上是 DoT (DNS over TLS) 的端口）
+
+						![](assets/dns-why-853-unpolluted.png)
+
+						玄学
+					</textarea
+            >
+          </section>
+        </section>
+        <section>
+          <section data-markdown>
+            <textarea data-template>
+						### DNSSEC
+					
+						* DNSKEY
+						* DS
+						* RRSIG
+					
+						你知道自己得到的结果是错误的，但也没办法。
+					</textarea
+            >
+          </section>
+          <section>
+            <a href="http://dnsviz.net/d/paypal.com/dnssec/">图解</a>
+            <br />
+            <a href="https://www.cloudflare.com/dns/dnssec/how-dnssec-works/"
+              >https://www.cloudflare.com/dns/dnssec/how-dnssec-works/</a
+            >
+            <br />
+            <p>（长图杀猫）</p>
+            <p>
+              <a href="assets/paypal-dnskey.png">DNSKey</a>
+            </p>
+          </section>
+          <section>
+            <p>
+              By the way, DNSSEC is <b>NOT</b> well configured on all domains.
+            </p>
+            <p>So I'm NOT recommending verifying it on your DNS server.</p>
+            <p>
+              And it <b>obviously slows down</b> your DNS queries (more queries
+              and much larger packs).
+            </p>
+          </section>
+          <section>
+            <img src="assets/apnic-dnssec.png" alt="" />
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+```	
+$ dig . dnskey +dnssec
+	
+.                       9239    IN      DNSKEY  257 3 8 AwEAAaz/tAm8yTn4Mfeh5eyI96WSVexTBAvkMgJzkKTOiW1vkIbzxeF3 +/4RgWOq7HrxRixHlFlExOLAJr5emLvN7SWXgnLh4+B5xQlNVz8Og8kv ArMtNROxVQuCaSnIDdD5LKyWbRd2n9WGe2R8PzgCmr3EgVLrjyBxWezF 0jLHwVN8efS3rCj/EWgvIWgb9tarpVUDK/b58Da+sqqls3eNbuv7pr+e oZG+SrDK6nWeL3c6H5Apxz7LjVc1uTIdsIXxuOLYA4/ilBmSVIzuDWfd RUfhHdY6+cn8HFRm+2hM8AnXGXws9555KrUB5qihylGa8subX2Nn6UwN R1AkUTV74bU=
+.                       9239    IN      DNSKEY  256 3 8 AwEAAcH+axCdUOsTc9o+jmyVq5rsGTh1EcatSumPqEfsPBT+whyj0/Uh D7cWeixV9Wqzj/cnqs8iWELqhdzGX41ZtaNQUfWNfOriASnWmX2D9m/E unplHu8nMSlDnDcT7+llE9tjk5HI1Sr7d9N16ZTIrbVALf65VB2ABbBG 39dyAb7tz21PICJbSp2cd77UF7NFqEVkqohl/LkDw+7Apalmp0qAQT1M gwi2cVxZMKUiciA6EqS+KNajf0A6olO2oEhZnGGY6b1LTg34/YfHdiII ZQqAfqbieruCGHRiSscC2ZE7iNreL/76f4JyIEUNkt6bQA29JsegxorL zQkpF7NKqZc=
+.                       9239    IN      DNSKEY  256 3 8 AwEAAeVDC34GZILwsQJy97K2Fst4P3XYZrXLyrkausYzSqEjSUulgh+i LgHg0y7FIF890+sIjXsk7KLJUmCOWfYWPorNKEOKLk5Zx/4M6D3IHZE3 O3m/Eahrc28qQzmTLxiMZAW65MvR2UO3LxVtYOPBEBiDgAQD47x2JLsJ YtavCzNL5WiUk59OgvHmDqmcC7VXYBhK8V8Tic089XJgExGeplKWUt9y yc31ra1swJX51XsOaQz17+vyLVH8AZP26KvKFiZeoRbaq6vl+hc8HQnI 2ug5rA2zoz3MsSQBvP1f/HvqsWxLqwXXKyDD1QM639U+XzVB8CYigysc RP22QCnwKIU=
+.                       9239    IN      RRSIG   DNSKEY 8 0 172800 20190412000000 20190322000000 20326 . BI3MM0d7oqfNX6Tqgw5NwCZ2DfKtQXDHWE7VdIJK3HCmskguJQH8WDyR aR6leI5aprwtQyylYze2FPtP8qWLSVSRMUPIEF4Sdw5y2KonV4zi5S22 xMeu43Cgk+yFrCTkzi6IfCMlFf6dehwAFCYJZvYQkT2twhZXVkPjuLB+ VQlmvmpzfTFN3VcaDvvNJ6CSVCVbNKpRmPnUgscLEjWC0HydBlUSOhZS QEetIKnm/HN+biN9VptVyEwiKY/mzvuMcEPu/3+j/a3hgOlg2TVzI0NE adZy8zeXPHleDKgLA32NChTuWgIye+8HwftIwUOJQPczEqdgFSIZ5Ak0 YdD3uw==
+```
+						</textarea
+            >
+          </section>
+          <section>
+            <a
+              href="https://www.cloudflare.com/dns/dnssec/root-signing-ceremony/"
+              >https://www.cloudflare.com/dns/dnssec/root-signing-ceremony/</a
+            >
+            <br />
+            <a href="https://www.iana.org/dnssec/ceremonies"
+              >https://www.iana.org/dnssec/ceremonies</a
+            >
+          </section>
+        </section>
+        <section>
+          <section data-markdown>
+            <textarea data-template>
+						### DNS over TLS / DNS over HTTPS (DoH/DoT)
+	
+						（可能是唯一一个你会用到的）
+					</textarea
+            >
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+							#### DNS 请求是明文的
+
+							![](assets/dns-53-youtube-send.png)
+						</textarea
+            >
+          </section>
+          <section>
+            <img src="assets/dns-53-youtube-recv.png" alt="" />
+          </section>
+          <section>
+            <img src="assets/dns-853-crypt.png" alt="" />
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+							#### 最简单的方案
+							<img src="assets/firefox-doh.png" style="height: 550px" alt="">
+						</textarea
+            >
+          </section>
+          <section>
+            <p>减速效果？是的</p>
+            <img src="assets/dot-bilibili-over.png" alt="" />
+            <img src="assets/dns-bilibili-std.png" alt="" />
+          </section>
+          <section>
+            <p>其中一种解决方案</p>
+            <img src="assets/dcl.png" alt="" />
+          </section>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+					All in all, it depends on you.
+				</textarea
+          >
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+					![](assets/keep-up.png)
+					
+					 最后祝各位<span style="filter: blur(4px)">穿越虚拟砖墙结构</span>顺利！
+				</textarea
+          >
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+					## Thanks
+
+					Build with [reveal.js](https://github.com/hakimel/reveal.js/)
+
+					Most images are (c) CloudFlare
+
+					CC [BY-NC-SA 3.0 International](https://creativecommons.org/licenses/by-nc-sa/3.0/)
+				</textarea
+          >
+        </section>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@3.8.0/js/reveal.js"></script>
+
+    <script>
+      Reveal.initialize({
+        dependencies: [
+          { src: "https://cdn.jsdelivr.net/npm/reveal.js@3.8.0/plugin/markdown/marked.js" },
+          { src: "https://cdn.jsdelivr.net/npm/reveal.js@3.8.0/plugin/markdown/markdown.js" }
+        ],
+        history: true
+      });
+    </script>
+  </body>
+</html>

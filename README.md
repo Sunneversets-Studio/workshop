@@ -20,3 +20,7 @@
 
 * [Introduction to PyQt5 by Kehang Wei](https://github.com/Sunneversets-Studio/workshop/tree/master/4-Mar-9/PyQt5)
 * [Introduction to SVG by Zhuoxuan Li](https://github.com/Sunneversets-Studio/workshop/tree/master/4-Mar-9/SVG)
+
+### Apr 14
+
+* [Introduction to DNS by Kevin Sun](https://github.com/Sunneversets-Studio/workshop/tree/master/5-Apr-14/DNS)
