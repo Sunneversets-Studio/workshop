@@ -4,6 +4,7 @@
 
 ### Jan 12
 
+- [Jupyter-tutorial by Yuheng Qiu](https://github.com/Sunneversets-Studio/workshop/tree/master/1-Jan-12/git-tutorial)
 - [Introduction to OAuth 2.0 by Pengfei Yu](https://github.com/Sunneversets-Studio/workshop/tree/master/1-Jan-12/OAuth.pdf)
 
 ### Feb 23
@@ -23,4 +24,5 @@
 
 ### Apr 14
 
+* [Jupyter tutorial by Yuheng Qiu](https://github.com/Sunneversets-Studio/workshop/tree/master/5-Apr-14/Jupyter-tutorial)
 * [Introduction to DNS by Kevin Sun](https://github.com/Sunneversets-Studio/workshop/tree/master/5-Apr-14/DNS)
