@@ -4,7 +4,7 @@
 
 ### Jan 12
 
-- [Jupyter-tutorial by Yuheng Qiu](https://github.com/Sunneversets-Studio/workshop/tree/master/1-Jan-12/git-tutorial)
+- [git tutorial by Yuheng Qiu](https://github.com/Sunneversets-Studio/workshop/tree/master/1-Jan-12/git-tutorial)
 - [Introduction to OAuth 2.0 by Pengfei Yu](https://github.com/Sunneversets-Studio/workshop/tree/master/1-Jan-12/OAuth.pdf)
 
 ### Feb 23
