@@ -26,3 +26,8 @@
 
 * [Jupyter tutorial by Yuheng Qiu](https://github.com/Sunneversets-Studio/workshop/tree/master/5-Apr-14/Jupyter-tutorial)
 * [Introduction to DNS by Kevin Sun](https://github.com/Sunneversets-Studio/workshop/tree/master/5-Apr-14/DNS)
+
+
+### Apr 21
+
+* [Introduction to HTTP by Xiaoxing Ye](https://github.com/Sunneversets-Studio/workshop/tree/master/6-Apr-21)
